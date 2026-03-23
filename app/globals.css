@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+body{
+    background-image: url("../public/images/Rectangle 1.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+.containers{
+    width: 1300px !important;
+    margin: 0 auto;
+}
+
+.lang-wrapper:hover > .lang-inner{
+    height: 88px !important;
+    opacity: 1 !important;
+}
+
+.hero-bg{
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.4)0%, rgba(255, 255, 255, 0.4) 100%);
+}
+
+/* .hero-section{
+    background-image: url("../public/images/leaf.png");
+    background-repeat: no-repeat;
+    background-size: 298px 293px;
+} */
