@@ -11,7 +11,10 @@ const LangConfig = () => {
     { id: 3, name: "Uzbek", icon: "/images/uz-flag.svg" }
   ])
 
-  function handleChangeLang(item:{id:number,name:string,icon:string}){
+  // Tanlangan tilni o'zgartirish funksiyasi
+  const handleChangeLang = (e: React.MouseEvent, item: { id: number, name: string, icon: string }) => {
+    e.stopPropagation(); // MUHIM: Click voqeasi div-ga o'tib ketmasligi uchun
+    
     const newList = langList.filter(v => v.id !== item.id)
     setLangList([item, ...newList])
     setOpen(false)
@@ -20,16 +23,46 @@ const LangConfig = () => {
   return (
     <div 
       onClick={() => setOpen(!open)}
-      className="flex cursor-pointer relative items-center gap-3.5">
-      <Image src={langList[0].icon} alt="flag" width={16} height={16}/>
-      <span className="text-[16px]">{langList[0].name}</span>
-      <Arraydown/>
+      className="flex cursor-pointer relative items-center gap-3.5 select-none" // select-none qo'shildi
+    >
+      {/* Tanlangan til */}
+      <div className="flex items-center gap-2">
+         {/* Icon chiqishi uchun public/images/ papkasida rasm borligini tekshiring */}
+         <Image 
+            src={langList[0].icon} 
+            alt="flag" 
+            width={20} 
+            height={20} 
+            className="object-contain" 
+         />
+         <span className="text-[16px] text-black">{langList[0].name}</span>
+      </div>
+      
+      <div className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}>
+        <Arraydown/>
+      </div>
 
-      <ul className={`absolute top-7 bg-black flex flex-col gap-2 w-full p-2 rounded-[5px] transition-all duration-300 ${open ? "opacity-100 visible" : "opacity-0 invisible"}`}>
+      {/* Ochiladigan ro'yxat */}
+      <ul 
+        className={`absolute top-10 left-0 bg-white shadow-xl flex flex-col min-w-30 p-2 rounded-[10px] z-99 border border-gray-100 transition-all duration-300 ${
+          open ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
+        }`}
+        onClick={(e) => e.stopPropagation()} // Ro'yxat ichini bosganda menyu yopilib ketmasligi uchun
+      >
         {langList.slice(1).map(item => (
-          <li key={item.id} onClick={() => handleChangeLang(item)} className="text-white p-1 flex items-center gap-2 hover:bg-white hover:text-black rounded">
-            <Image src={item.icon} alt="flag" width={16} height={16}/>
-            <span>{item.name}</span>
+          <li 
+            key={item.id} 
+            onClick={(e) => handleChangeLang(e, item)} 
+            className="flex items-center gap-3 p-2 hover:bg-gray-100 rounded-lg transition-colors text-black"
+          >
+            <Image 
+                src={item.icon} 
+                alt={item.name} 
+                width={20} 
+                height={20} 
+                className="object-contain"
+            />
+            <span className="text-sm font-medium">{item.name}</span>
           </li>
         ))}
       </ul>

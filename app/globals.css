@@ -26,3 +26,13 @@ body{
     background-repeat: no-repeat;
     background-size: 298px 293px;
 } */
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
