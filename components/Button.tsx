@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
 
-// Interface orqali tiplarni aniqlaymiz
+// Interface orqali tiplarni aniqlash
 interface ButtonProps {
     icon?: ReactNode;
     title?: string;

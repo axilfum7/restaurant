@@ -282,3 +282,11 @@ export const Instagram = () => <svg width="19" height="20" viewBox="0 0 19 20" f
 </defs>
 </svg>
 
+
+
+
+export const Dom = () => <svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.5 19.5H1.5L19.5 1.5L37.5 19.5H33.5" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.5 19.5V33.5C5.5 34.5609 5.92143 35.5783 6.67157 36.3284C7.42172 37.0786 8.43913 37.5 9.5 37.5H29.5C30.5609 37.5 31.5783 37.0786 32.3284 36.3284C33.0786 35.5783 33.5 34.5609 33.5 33.5V19.5" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.5 19.5H23.5V27.5H15.5V19.5Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
